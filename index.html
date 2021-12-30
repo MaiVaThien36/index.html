@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Dome</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller = "myCtrl">
+    <h3>Điểm Toán:</h3>
+    <input type="number" ng-model="toan" id="a1"/> <br>
+    <h3>Điểm Lý:</h3>
+    <input type="number" ng-model="ly" id="b1"/> <br>
+    <h3>Điểm Hóa:</h3>
+    <input type="number" ng-model="hoa" id="c1"/> <br>
+    <input type="button" value="Calculate" ng-click ="Calc()"/> <br>
+    <h3>Điểm trung bình của 3 môn : {{avg}}</h3>
+    <h3>Điêmr tổng của 3 môn:{{sum}}</h3>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope){
+           $scope.toan = 0;
+           $scope.ly = 0;
+           $scope.hoa = 0;
+           $scope.avg = 0;
+           $scope.sum = 0;
+           $scope.Calc = function() {
+            $scope.sum = $scope.toan + $scope.ly + $scope.hoa 
+            $scope.avg = ($scope.sum/3).toFixed(2);  
+           }
+        });
+    </script>
+</body>
+</html>
